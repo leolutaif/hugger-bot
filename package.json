@@ -8,10 +8,6 @@
     "buy": "node buyexample.js",
     "sell": "node sellexample.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SolanaDeveloperr/PumpFun-Swap"
-  },
   "keywords": [
     "solana",
     "web3.js",
