@@ -70,7 +70,7 @@ async function getKeyPairFromPrivateKey(base58Key) {
 }
 
 async function createTransaction(connection, instructions, payer, priorityFeeInSol = 0) {
-  const modifyComputeUnits = ComputeBudgetProgram.setComputeUnitLimit({ units: 1400000 });
+  const modifyComputeUnits = ComputeBudgetProgram.setComputeUnitLimit({ units: 58000 });
   const transaction = new Transaction().add(modifyComputeUnits);
 
   if (priorityFeeInSol > 0) {
@@ -140,14 +140,14 @@ async function jito_confirm(signature, latestBlockhash, connection) {
     let confirmed = false;
     let pollAttempts = 0;
 
-    while (!confirmed && (Date.now() - start) < 30000) { // Poll for a maximum of 30 seconds
+    while (!confirmed && (Date.now() - start) < 10000) { // Poll for a maximum of 30 seconds
       const response = await connection.getSignatureStatus(signature);
 
       if (response && response.value && response.value.confirmationStatus === "confirmed") {
         confirmed = true;
       } else {
         pollAttempts += 1;
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for 1 second before next poll
+        await new Promise(resolve => setTimeout(resolve, 0.0001)); // Wait for 1 second before next poll
       }
     }
 
