@@ -7,7 +7,7 @@ const slippageDecimal = parseFloat(process.env.SLIPPAGE_DECIMAL);
 const priorityFeeInSol = parseFloat(process.env.PRIORITY_FEE_IN_SOL);
 
 
-const tokenMintAddress = ''; 
+const tokenMintAddress = 'AfBgCKGjbvRUx1urPFbioKAeV8hCahJrZE7qvPxNpump'; 
 const solIn = 0.001; //amount fo sol you want to buy a token
 
 async function main() {
